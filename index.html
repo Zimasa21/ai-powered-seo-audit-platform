@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-powered SEO auditing, optimisation recommendations and performance tracking.">
+  <title>Verdant SEO | AI-powered SEO Audit & Optimisation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Verdant SEO home">
+        <span class="brand-mark"><i data-lucide="sprout"></i></span>
+        <span>verdant<span class="brand-light">.seo</span></span>
+      </a>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview"><i data-lucide="layout-dashboard"></i> Overview</a>
+        <a class="nav-link" href="#audits"><i data-lucide="scan-search"></i> Site audits</a>
+        <a class="nav-link" href="#recommendations"><i data-lucide="lightbulb"></i> Recommendations</a>
+        <a class="nav-link" href="#content"><i data-lucide="file-text"></i> Content opportunities</a>
+        <a class="nav-link" href="#geo"><i data-lucide="sparkles"></i> AI & GEO visibility</a>
+        <a class="nav-link" href="#tracking"><i data-lucide="chart-no-axes-combined"></i> Improvement tracking</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-icon"><i data-lucide="book-open"></i></span>
+          <strong>Need a hand?</strong>
+          <p>Explore the platform guide and learn how to get more from your audits.</p>
+          <a href="#guide">View guide <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <a class="nav-link" href="#settings"><i data-lucide="settings-2"></i> Settings</a>
+        <div class="profile">
+          <div class="avatar">ZA</div>
+          <div><strong>Workspace Admin</strong><small>SEO team</small></div>
+          <i data-lucide="chevron-down" class="profile-chevron"></i>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="status"><span></span> All systems operational</span>
+          <button class="icon-button" aria-label="Notifications"><i data-lucide="bell"></i><b></b></button>
+          <div class="avatar small-avatar">ZA</div>
+        </div>
+      </header>
+
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">MONDAY, YOUR SEO STARTS HERE</p>
+          <h1>Turn insights into <span>growth.</span></h1>
+          <p class="subtitle">Audit your website, uncover opportunities and measure the impact of every improvement.</p>
+        </div>
+        <div class="date-chip"><i data-lucide="calendar-days"></i> Your SEO workspace</div>
+      </section>
+
+      <section class="audit-banner" id="audits">
+        <div class="banner-copy">
+          <span class="banner-kicker"><i data-lucide="scan-line"></i> START WITH AN AUDIT</span>
+          <h2>Understand your website's SEO health.</h2>
+          <p>Enter a website address to prepare a new audit and uncover what to improve next.</p>
+          <form class="audit-form" id="auditForm">
+            <label class="sr-only" for="websiteUrl">Website URL</label>
+            <i data-lucide="globe-2"></i>
+            <input id="websiteUrl" type="url" placeholder="https://www.example.com" required>
+            <button type="submit">Start an audit <i data-lucide="arrow-right"></i></button>
+          </form>
+          <p class="form-note" id="formMessage">You will be able to review technical, content and AI-search opportunities.</p>
+        </div>
+        <div class="banner-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="art-core"><i data-lucide="sprout"></i></div>
+          <span class="float-card float-top"><i data-lucide="trending-up"></i> Growth opportunities</span>
+          <span class="float-card float-bottom"><i data-lucide="check-circle-2"></i> Actionable insights</span>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <div><p class="eyebrow">PERFORMANCE SNAPSHOT</p><h2>Your website at a glance</h2></div>
+        <span class="demo-label">Illustrative demo data</span>
+      </section>
+
+      <section class="metric-grid" aria-label="SEO metrics">
+        <article class="metric-card">
+          <div class="metric-top"><span>SEO health score</span><span class="metric-icon"><i data-lucide="heart-pulse"></i></span></div>
+          <div class="metric-value">78<span>/100</span></div>
+          <div class="metric-foot"><span class="trend positive"><i data-lucide="trending-up"></i> +6 points</span><span>vs. previous audit</span></div>
+          <div class="progress-track"><span style="width:78%"></span></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Issues to review</span><span class="metric-icon amber"><i data-lucide="alert-circle"></i></span></div>
+          <div class="metric-value">24</div>
+          <div class="metric-foot"><span class="trend positive">↓ 8 issues</span><span>vs. previous audit</span></div>
+          <div class="mini-bars"><i style="height:55%"></i><i style="height:75%"></i><i style="height:48%"></i><i style="height:90%"></i><i style="height:65%"></i><i style="height:35%"></i><i style="height:25%"></i></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Content opportunities</span><span class="metric-icon purple"><i data-lucide="files"></i></span></div>
+          <div class="metric-value">12</div>
+          <div class="metric-foot"><span class="trend neutral">Ready to explore</span><span>Keyword & content gaps</span></div>
+          <div class="tag-row"><span>4 refreshes</span><span>8 new topics</span></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>AI visibility checks</span><span class="metric-icon blue"><i data-lucide="sparkles"></i></span></div>
+          <div class="metric-value">6<span> areas</span></div>
+          <div class="metric-foot"><span class="trend neutral">Needs assessment</span><span>GEO readiness</span></div>
+          <div class="geo-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel recommendations" id="recommendations">
+          <div class="panel-heading"><div><p class="eyebrow">WHAT TO DO NEXT</p><h2>Priority recommendations</h2></div><a href="#all-recommendations">View all <i data-lucide="arrow-up-right"></i></a></div>
+          <div class="recommendation-item">
+            <span class="priority high">HIGH</span>
+            <div class="recommendation-copy"><strong>Improve missing page descriptions</strong><p>Some important pages do not have unique meta descriptions.</p><small><i data-lucide="file-search"></i> Technical SEO · Metadata</small></div>
+            <span class="impact">High impact</span>
+          </div>
+          <div class="recommendation-item">
+            <span class="priority medium">MED</span>
+            <div class="recommendation-copy"><strong>Strengthen internal linking</strong><p>Connect related pages to help visitors and search engines discover content.</p><small><i data-lucide="network"></i> Site structure · Links</small></div>
+            <span class="impact">Medium impact</span>
+          </div>
+          <div class="recommendation-item">
+            <span class="priority medium">MED</span>
+            <div class="recommendation-copy"><strong>Refresh content with declining potential</strong><p>Review pages that may benefit from updated information and intent alignment.</p><small><i data-lucide="refresh-cw"></i> Content optimisation</small></div>
+            <span class="impact">Medium impact</span>
+          </div>
+        </article>
+
+        <article class="panel opportunities" id="content">
+          <div class="panel-heading"><div><p class="eyebrow">GROW YOUR REACH</p><h2>Opportunity finder</h2></div><span class="sparkle"><i data-lucide="sparkles"></i></span></div>
+          <div class="opportunity-block">
+            <div class="opportunity-icon"><i data-lucide="search"></i></div>
+            <div><strong>Keyword opportunities</strong><p>Find relevant topics your audience is searching for.</p><span class="opportunity-count">Explore keyword gaps <i data-lucide="arrow-up-right"></i></span></div>
+          </div>
+          <div class="opportunity-block">
+            <div class="opportunity-icon content-icon"><i data-lucide="notebook-pen"></i></div>
+            <div><strong>Content opportunities</strong><p>Identify pages to improve and topics worth creating.</p><span class="opportunity-count">Explore content ideas <i data-lucide="arrow-up-right"></i></span></div>
+          </div>
+          <div class="opportunity-block">
+            <div class="opportunity-icon ai-icon"><i data-lucide="brain-circuit"></i></div>
+            <div><strong>AI search opportunities</strong><p>Review how clearly your content answers relevant questions.</p><span class="opportunity-count">Explore GEO insights <i data-lucide="arrow-up-right"></i></span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel tracking-panel" id="tracking">
+        <div class="panel-heading"><div><p class="eyebrow">MEASURE WHAT CHANGES</p><h2>Improvement tracking</h2><p class="panel-subtitle">Compare audit results before and after implementing recommendations.</p></div><span class="tracking-icon"><i data-lucide="chart-no-axes-combined"></i></span></div>
+        <div class="tracking-steps">
+          <div class="tracking-step"><span class="step-number">01</span><div><strong>Run a baseline audit</strong><p>Record your website's starting position.</p></div></div>
+          <i data-lucide="arrow-right" class="step-arrow"></i>
+          <div class="tracking-step"><span class="step-number">02</span><div><strong>Implement changes</strong><p>Work through prioritised recommendations.</p></div></div>
+          <i data-lucide="arrow-right" class="step-arrow"></i>
+          <div class="tracking-step"><span class="step-number">03</span><div><strong>Measure improvements</strong><p>Re-audit and compare the results.</p></div></div>
+        </div>
+        <div class="tracking-note"><i data-lucide="info"></i> This prototype uses illustrative dashboard data. Live crawling, AI analysis and historical comparisons still need to be connected to a backend.</div>
+      </section>
+
+      <footer class="footer"><span>© 2026 Verdant SEO · AI-powered SEO Audit & Optimisation</span><span>Built to turn data into direction <i data-lucide="sprout"></i></span></footer>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
