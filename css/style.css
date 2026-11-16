@@ -226,3 +226,125 @@ h1 span { color: var(--green); }
   .recommendation-item { flex-wrap: wrap; }
   .impact { margin-left: 49px; }
 }
+
+/* =====================================
+   SEO WORKSPACE DATE FILTER
+===================================== */
+
+.date-filter {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.date-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 15px;
+  background: #14251f;
+  color: #e5eee9;
+  border: 1px solid #30483e;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.date-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 260px;
+  padding: 10px;
+  background: #14251f;
+  border: 1px solid #30483e;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+  z-index: 9999;
+}
+
+.date-dropdown.show {
+  display: block;
+}
+
+.date-dropdown button:not(.apply-date-btn) {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: transparent;
+  color: #e5eee9;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.date-dropdown button:hover,
+.date-dropdown button.active {
+  background: #234536;
+}
+
+.custom-date {
+  padding: 12px 5px 5px;
+  margin-top: 8px;
+  border-top: 1px solid #30483e;
+}
+
+.custom-date label {
+  display: block;
+  margin-bottom: 7px;
+  color: #a9bdb2;
+  font-size: 12px;
+}
+
+.date-range-inputs {
+  display: flex;
+  gap: 8px;
+}
+
+.date-range-inputs > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.date-range-inputs input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 5px;
+  background: #20372d;
+  color: white;
+  border: 1px solid #405b4c;
+  border-radius: 7px;
+  color-scheme: dark;
+}
+
+.apply-date-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: #16865b;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.date-error {
+  color: #ff7777;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .welcome-row {
+    flex-direction: column;
+  }
+
+  .date-filter {
+    align-self: flex-start;
+  }
+}
+
