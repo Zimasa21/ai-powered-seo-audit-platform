@@ -8,6 +8,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    
+const dateButton = document.getElementById("dateFilterButton");
+const dateDropdown = document.getElementById("dateDropdown");
+const dateLabel = document.getElementById("selectedDateLabel");
+const customDate = document.getElementById("customDate");
+
+dateButton.addEventListener("click", () => {
+  dateDropdown.classList.toggle("show");
+});
+
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    document.querySelectorAll("[data-filter]").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    if (filter === "today") {
+      dateLabel.textContent = "Today";
+    } else {
+      dateLabel.textContent = `Last ${filter} days`;
+    }
+
+    dateDropdown.classList.remove("show");
+
+    // Pass the selected filter to your dashboard filtering logic.
+    console.log("Selected date filter:", filter);
+  });
+});
+
+customDate.addEventListener("change", () => {
+  if (!customDate.value) return;
+
+  dateLabel.textContent = new Date(
+    customDate.value + "T12:00:00"
+  ).toLocaleDateString();
+
+  dateDropdown.classList.remove("show");
+
+  console.log("Selected custom date:", customDate.value);
+});
+
+document.addEventListener("click", event => {
+  if (!event.target.closest(".date-filter")) {
+    dateDropdown.classList.remove("show");
+  }
+});
 
     const enteredUrl = urlInput.value.trim();
     let parsedUrl;
