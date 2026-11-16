@@ -64,7 +64,6 @@ document.querySelectorAll("[data-filter]").forEach(button => {
     console.log("Selected date filter:", filter);
 
   });
-
 });
 
 
