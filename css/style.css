@@ -67,6 +67,83 @@ h1 { font-size: clamp(27px, 3vw, 36px); margin-bottom: 8px; }
 h1 span { color: var(--green); }
 .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 0; }
 .date-chip { color: #b3c8b9; border: 1px solid var(--line); background: #0d1d15; padding: 9px 12px; border-radius: 8px; font-size: 11px; display: flex; gap: 8px; align-items: center; }
+
+.date-filter {
+  position: relative;
+  display: inline-block;
+}
+
+.date-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color, #2d4039);
+  border-radius: 10px;
+  background: var(--card-bg, #14251f);
+  color: inherit;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.date-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 210px;
+  padding: 8px;
+  background: #14251f;
+  border: 1px solid #30483e;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
+
+.date-dropdown.show {
+  display: block;
+}
+
+.date-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: transparent;
+  color: #e5eee9;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.date-dropdown button:hover,
+.date-dropdown button.active {
+  background: #234536;
+}
+
+.custom-date {
+  padding: 10px;
+  border-top: 1px solid #30483e;
+  margin-top: 5px;
+}
+
+.custom-date label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #a9bdb2;
+}
+
+.custom-date input {
+  width: 100%;
+  padding: 8px;
+  background: #20372d;
+  color: white;
+  border: 1px solid #405b4c;
+  border-radius: 7px;
+  color-scheme: dark;
+}
+
 .date-chip svg { width: 14px; color: var(--green); }
 .audit-banner { position: relative; overflow: hidden; display: flex; align-items: center; min-height: 242px; padding: 30px 34px; border: 1px solid #28513a; border-radius: 15px; background: radial-gradient(ellipse at 82% 50%, #1c4a30 0, transparent 38%), linear-gradient(110deg, #122e20, #0e2118 70%); }
 .banner-copy { width: min(650px, 75%); position: relative; z-index: 2; }
