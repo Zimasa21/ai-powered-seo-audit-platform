@@ -61,7 +61,25 @@
           <h1>Turn insights into <span>growth.</span></h1>
           <p class="subtitle">Audit your website, uncover opportunities and measure the impact of every improvement.</p>
         </div>
-        <div class="date-chip"><i data-lucide="calendar-days"></i> Your SEO workspace</div>
+        <div class="date-filter">
+  <button class="date-chip" id="dateFilterButton">
+    <i data-lucide="calendar-days"></i>
+    <span id="selectedDateLabel">Last 30 days</span>
+    <i data-lucide="chevron-down"></i>
+  </button>
+
+  <div class="date-dropdown" id="dateDropdown">
+    <button data-filter="today">Today</button>
+    <button data-filter="7">Last 7 days</button>
+    <button data-filter="30" class="active">Last 30 days</button>
+    <button data-filter="90">Last 90 days</button>
+
+    <div class="custom-date">
+      <label for="customDate">Custom date</label>
+      <input type="date" id="customDate">
+    </div>
+  </div>
+</div>
       </section>
 
       <section class="audit-banner" id="audits">
