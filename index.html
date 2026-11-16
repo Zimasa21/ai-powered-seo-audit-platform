@@ -75,9 +75,26 @@
     <button data-filter="90">Last 90 days</button>
 
     <div class="custom-date">
-      <label for="customDate">Custom date</label>
-      <input type="date" id="customDate">
+  <label>Custom date range</label>
+
+  <div class="date-range-inputs">
+    <div>
+      <label for="startDate">From</label>
+      <input type="date" id="startDate">
     </div>
+
+    <div>
+      <label for="endDate">To</label>
+      <input type="date" id="endDate">
+    </div>
+  </div>
+
+  <button id="applyDateRange" class="apply-date-btn">
+    Apply date range
+  </button>
+
+  <p id="dateError" class="date-error"></p>
+</div>
   </div>
 </div>
       </section>
