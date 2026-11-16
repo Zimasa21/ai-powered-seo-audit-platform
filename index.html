@@ -62,114 +62,99 @@
           <p class="subtitle">Audit your website, uncover opportunities and measure the impact of every improvement.</p>
         </div>
        
-// ==========================================
-// SEO WORKSPACE DATE FILTER
-// ==========================================
+        
+<!-- =====================================
+     SEO WORKSPACE DATE FILTER
+====================================== -->
 
-// 1. Get HTML elements
-const dateButton = document.getElementById("dateFilterButton");
-const dateDropdown = document.getElementById("dateDropdown");
-const dateLabel = document.getElementById("selectedDateLabel");
+<div class="date-filter">
 
-const startDate = document.getElementById("startDate");
-const endDate = document.getElementById("endDate");
-const applyDateRange = document.getElementById("applyDateRange");
-const dateError = document.getElementById("dateError");
+  <!-- Date filter dropdown button -->
+  <button
+    class="date-chip"
+    id="dateFilterButton"
+    type="button"
+    aria-expanded="false"
+    aria-controls="dateDropdown"
+  >
+    <i data-lucide="calendar-days"></i>
 
+    <span id="selectedDateLabel">Last 30 days</span>
 
-// 2. Open and close date dropdown
-dateButton.addEventListener("click", () => {
-  dateDropdown.classList.toggle("show");
-});
-
-
-// 3. Quick date filters
-document.querySelectorAll("[data-filter]").forEach(button => {
-
-  button.addEventListener("click", () => {
-
-    const filter = button.dataset.filter;
-
-    // Remove previous active selection
-    document.querySelectorAll("[data-filter]").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    // Update selected date label
-    if (filter === "today") {
-      dateLabel.textContent = "Today";
-    } else {
-      dateLabel.textContent = `Last ${filter} days`;
-    }
-
-    // Clear custom date inputs and errors
-    startDate.value = "";
-    endDate.value = "";
-    dateError.textContent = "";
-
-    // Close dropdown
-    dateDropdown.classList.remove("show");
-
-    // Send selected filter to dashboard
-    console.log("Selected date filter:", filter);
-
-  });
-
-});
+    <i data-lucide="chevron-down"></i>
+  </button>
 
 
-// 4. Apply custom date range
-applyDateRange.addEventListener("click", () => {
+  <!-- Date filter dropdown -->
+  <div class="date-dropdown" id="dateDropdown">
 
-  const from = startDate.value;
-  const to = endDate.value;
+    <!-- Quick date filters -->
+    <button type="button" data-filter="today">
+      Today
+    </button>
 
-  // Clear previous error
-  dateError.textContent = "";
+    <button type="button" data-filter="7">
+      Last 7 days
+    </button>
 
-  // Validate both dates
-  if (!from || !to) {
-    dateError.textContent = "Please select both dates.";
-    return;
-  }
+    <button type="button" data-filter="30" class="active">
+      Last 30 days
+    </button>
 
-  // Validate date order
-  if (from > to) {
-    dateError.textContent = "The start date cannot be after the end date.";
-    return;
-  }
-
-  // Remove active state from quick filters
-  document.querySelectorAll("[data-filter]").forEach(item => {
-    item.classList.remove("active");
-  });
-
-  // Update dashboard date label
-  dateLabel.textContent = `${from} – ${to}`;
-
-  // Close dropdown
-  dateDropdown.classList.remove("show");
-
-  // Send selected range to dashboard
-  console.log("Selected date range:", {
-    from: from,
-    to: to
-  });
-
-});
+    <button type="button" data-filter="90">
+      Last 90 days
+    </button>
 
 
-// 5. Close dropdown when clicking outside
-document.addEventListener("click", event => {
+    <!-- Custom date range -->
+    <div class="custom-date">
 
-  if (!event.target.closest(".date-filter")) {
-    dateDropdown.classList.remove("show");
-  }
+      <label>Custom date range</label>
 
-});
+      <div class="date-range-inputs">
 
+        <!-- Start date -->
+        <div>
+          <label for="startDate">From</label>
+          <input
+            type="date"
+            id="startDate"
+          >
+        </div>
+
+        <!-- End date -->
+        <div>
+          <label for="endDate">To</label>
+          <input
+            type="date"
+            id="endDate"
+          >
+        </div>
+
+      </div>
+
+
+      <!-- Apply date range -->
+      <button
+        type="button"
+        id="applyDateRange"
+        class="apply-date-btn"
+      >
+        Apply date range
+      </button>
+
+      <!-- Validation message -->
+      <p
+        id="dateError"
+        class="date-error"
+        role="alert"
+      ></p>
+
+    </div>
+
+  </div>
+
+</div>
       </section>
 
       <section class="metric-grid" aria-label="SEO metrics">
