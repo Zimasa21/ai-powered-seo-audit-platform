@@ -41,8 +41,39 @@ document.querySelectorAll("[data-filter]").forEach(button => {
   });
 });
 
-customDate.addEventListener("change", () => {
-  if (!customDate.value) return;
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
+const applyDateRange = document.getElementById("applyDateRange");
+const dateError = document.getElementById("dateError");
+
+applyDateRange.addEventListener("click", () => {
+  const from = startDate.value;
+  const to = endDate.value;
+
+  dateError.textContent = "";
+
+  if (!from || !to) {
+    dateError.textContent = "Please select both dates.";
+    return;
+  }
+
+  if (from > to) {
+    dateError.textContent = "The start date cannot be after the end date.";
+    return;
+  }
+
+  dateLabel.textContent =
+    `${from} – ${to}`;
+
+  dateDropdown.classList.remove("show");
+
+  console.log("Selected date range:", {
+    from: from,
+    to: to
+  });
+
+  // Connect this range to your SEO dashboard data filtering.
+});
 
   dateLabel.textContent = new Date(
     customDate.value + "T12:00:00"
