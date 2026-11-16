@@ -61,53 +61,115 @@
           <h1>Turn insights into <span>growth.</span></h1>
           <p class="subtitle">Audit your website, uncover opportunities and measure the impact of every improvement.</p>
         </div>
-       <div class="custom-date">
-  <label>Custom date range</label>
+       
+// ==========================================
+// SEO WORKSPACE DATE FILTER
+// ==========================================
 
-  <div class="date-range-inputs">
-    <div>
-      <label for="startDate">From</label>
-      <input type="date" id="startDate">
-    </div>
+// 1. Get HTML elements
+const dateButton = document.getElementById("dateFilterButton");
+const dateDropdown = document.getElementById("dateDropdown");
+const dateLabel = document.getElementById("selectedDateLabel");
 
-    <div>
-      <label for="endDate">To</label>
-      <input type="date" id="endDate">
-    </div>
-  </div>
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
+const applyDateRange = document.getElementById("applyDateRange");
+const dateError = document.getElementById("dateError");
 
-  <button id="applyDateRange" class="apply-date-btn">
-    Apply date range
-  </button>
 
-  <p id="dateError" class="date-error"></p>
-</div>
-      </section>
+// 2. Open and close date dropdown
+dateButton.addEventListener("click", () => {
+  dateDropdown.classList.toggle("show");
+});
 
-      <section class="audit-banner" id="audits">
-        <div class="banner-copy">
-          <span class="banner-kicker"><i data-lucide="scan-line"></i> START WITH AN AUDIT</span>
-          <h2>Understand your website's SEO health.</h2>
-          <p>Enter a website address to prepare a new audit and uncover what to improve next.</p>
-          <form class="audit-form" id="auditForm">
-            <label class="sr-only" for="websiteUrl">Website URL</label>
-            <i data-lucide="globe-2"></i>
-            <input id="websiteUrl" type="url" placeholder="https://www.example.com" required>
-            <button type="submit">Start an audit <i data-lucide="arrow-right"></i></button>
-          </form>
-          <p class="form-note" id="formMessage">You will be able to review technical, content and AI-search opportunities.</p>
-        </div>
-        <div class="banner-art" aria-hidden="true">
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="art-core"><i data-lucide="sprout"></i></div>
-          <span class="float-card float-top"><i data-lucide="trending-up"></i> Growth opportunities</span>
-          <span class="float-card float-bottom"><i data-lucide="check-circle-2"></i> Actionable insights</span>
-        </div>
-      </section>
 
-      <section class="section-heading">
-        <div><p class="eyebrow">PERFORMANCE SNAPSHOT</p><h2>Your website at a glance</h2></div>
-        <span class="demo-label">Illustrative demo data</span>
+// 3. Quick date filters
+document.querySelectorAll("[data-filter]").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const filter = button.dataset.filter;
+
+    // Remove previous active selection
+    document.querySelectorAll("[data-filter]").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    // Update selected date label
+    if (filter === "today") {
+      dateLabel.textContent = "Today";
+    } else {
+      dateLabel.textContent = `Last ${filter} days`;
+    }
+
+    // Clear custom date inputs and errors
+    startDate.value = "";
+    endDate.value = "";
+    dateError.textContent = "";
+
+    // Close dropdown
+    dateDropdown.classList.remove("show");
+
+    // Send selected filter to dashboard
+    console.log("Selected date filter:", filter);
+
+  });
+
+});
+
+
+// 4. Apply custom date range
+applyDateRange.addEventListener("click", () => {
+
+  const from = startDate.value;
+  const to = endDate.value;
+
+  // Clear previous error
+  dateError.textContent = "";
+
+  // Validate both dates
+  if (!from || !to) {
+    dateError.textContent = "Please select both dates.";
+    return;
+  }
+
+  // Validate date order
+  if (from > to) {
+    dateError.textContent = "The start date cannot be after the end date.";
+    return;
+  }
+
+  // Remove active state from quick filters
+  document.querySelectorAll("[data-filter]").forEach(item => {
+    item.classList.remove("active");
+  });
+
+  // Update dashboard date label
+  dateLabel.textContent = `${from} – ${to}`;
+
+  // Close dropdown
+  dateDropdown.classList.remove("show");
+
+  // Send selected range to dashboard
+  console.log("Selected date range:", {
+    from: from,
+    to: to
+  });
+
+});
+
+
+// 5. Close dropdown when clicking outside
+document.addEventListener("click", event => {
+
+  if (!event.target.closest(".date-filter")) {
+    dateDropdown.classList.remove("show");
+  }
+
+});
+
       </section>
 
       <section class="metric-grid" aria-label="SEO metrics">
