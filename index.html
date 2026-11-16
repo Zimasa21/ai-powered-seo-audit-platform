@@ -61,41 +61,98 @@
           <h1>Turn insights into <span>growth.</span></h1>
           <p class="subtitle">Audit your website, uncover opportunities and measure the impact of every improvement.</p>
         </div>
-        <div class="date-filter">
-  <button class="date-chip" id="dateFilterButton">
+       
+<!-- =====================================
+     SEO WORKSPACE DATE FILTER
+====================================== -->
+
+<div class="date-filter">
+
+  <!-- Date filter dropdown button -->
+  <button
+    class="date-chip"
+    id="dateFilterButton"
+    type="button"
+    aria-expanded="false"
+    aria-controls="dateDropdown"
+  >
     <i data-lucide="calendar-days"></i>
+
     <span id="selectedDateLabel">Last 30 days</span>
+
     <i data-lucide="chevron-down"></i>
   </button>
 
+
+  <!-- Date filter dropdown -->
   <div class="date-dropdown" id="dateDropdown">
-    <button data-filter="today">Today</button>
-    <button data-filter="7">Last 7 days</button>
-    <button data-filter="30" class="active">Last 30 days</button>
-    <button data-filter="90">Last 90 days</button>
 
+    <!-- Quick date filters -->
+    <button type="button" data-filter="today">
+      Today
+    </button>
+
+    <button type="button" data-filter="7">
+      Last 7 days
+    </button>
+
+    <button type="button" data-filter="30" class="active">
+      Last 30 days
+    </button>
+
+    <button type="button" data-filter="90">
+      Last 90 days
+    </button>
+
+
+    <!-- Custom date range -->
     <div class="custom-date">
-  <label>Custom date range</label>
 
-  <div class="date-range-inputs">
-    <div>
-      <label for="startDate">From</label>
-      <input type="date" id="startDate">
+      <label>Custom date range</label>
+
+      <div class="date-range-inputs">
+
+        <!-- Start date -->
+        <div>
+          <label for="startDate">From</label>
+          <input
+            type="date"
+            id="startDate"
+          >
+        </div>
+
+        <!-- End date -->
+        <div>
+          <label for="endDate">To</label>
+          <input
+            type="date"
+            id="endDate"
+          >
+        </div>
+
+      </div>
+
+
+      <!-- Apply date range -->
+      <button
+        type="button"
+        id="applyDateRange"
+        class="apply-date-btn"
+      >
+        Apply date range
+      </button>
+
+      <!-- Validation message -->
+      <p
+        id="dateError"
+        class="date-error"
+        role="alert"
+      ></p>
+
     </div>
 
-    <div>
-      <label for="endDate">To</label>
-      <input type="date" id="endDate">
-    </div>
   </div>
 
-  <button id="applyDateRange" class="apply-date-btn">
-    Apply date range
-  </button>
-
-  <p id="dateError" class="date-error"></p>
-</div>
-  </div>
 </div>
       </section>
 
