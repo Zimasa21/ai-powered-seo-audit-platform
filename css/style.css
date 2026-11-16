@@ -77,13 +77,7 @@ h1 span { color: var(--green); }
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 10px 14px;
-  border: 1px solid var(--border-color, #2d4039);
-  border-radius: 10px;
-  background: var(--card-bg, #14251f);
-  color: inherit;
   cursor: pointer;
-  font-size: 13px;
 }
 
 .date-dropdown {
@@ -91,93 +85,16 @@ h1 span { color: var(--green); }
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  width: 210px;
-  padding: 8px;
+  width: 240px;
+  padding: 10px;
   background: #14251f;
   border: 1px solid #30483e;
   border-radius: 12px;
-  z-index: 1000;
-  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+  z-index: 9999;
 }
 
 .date-dropdown.show {
   display: block;
-}
-
-.date-dropdown button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  text-align: left;
-  background: transparent;
-  color: #e5eee9;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.date-dropdown button:hover,
-.date-dropdown button.active {
-  background: #234536;
-}
-
-.custom-date {
-  padding: 10px;
-  border-top: 1px solid #30483e;
-  margin-top: 5px;
-}
-
-.custom-date label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 12px;
-  color: #a9bdb2;
-}
-
-.custom-date input {
-  width: 100%;
-  padding: 8px;
-  background: #20372d;
-  color: white;
-  border: 1px solid #405b4c;
-  border-radius: 7px;
-  color-scheme: dark;
-}
-.date-range-inputs {
-  display: flex;
-  gap: 10px;
-}
-
-.date-range-inputs > div {
-  flex: 1;
-  min-width: 0;
-}
-
-.date-range-inputs input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 5px;
-  background: #20372d;
-  color: white;
-  border: 1px solid #405b4c;
-  border-radius: 7px;
-  color-scheme: dark;
-}
-
-.apply-date-btn {
-  width: 100%;
-  margin-top: 12px;
-  padding: 10px;
-  background: #16865b;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.date-error {
-  color: #ff7777;
-  font-size: 12px;
 }
 
 .date-chip svg { width: 14px; color: var(--green); }
