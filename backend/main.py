@@ -1,11 +1,11 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+import fastapi
+import fastapi.middleware.cors
+import pydantic
 
 from seo_analyzer import analyse_website
 
 
-app = FastAPI(
+app = fastapi.FastAPI(
     title="AI-Powered SEO Audit API",
     description="Analyse one webpage and return technical SEO results.",
     version="1.0.0",
@@ -15,7 +15,7 @@ app = FastAPI(
 # Allow your local frontend to communicate with the backend.
 # We will add your deployed frontend origin when we deploy the API.
 app.add_middleware(
-    CORSMiddleware,
+    fastapi.middleware.cors.CORSMiddleware,
     allow_origins=[
         "http://127.0.0.1:5500",
         "http://localhost:5500",
@@ -30,8 +30,8 @@ app.add_middleware(
 )
 
 
-class AuditRequest(BaseModel):
-    url: str = Field(
+class AuditRequest(pydantic.BaseModel):
+    url: str = pydantic.Field(
         min_length=8,
         max_length=2048,
         description="The full URL of the webpage to analyse.",
@@ -62,13 +62,15 @@ def analyze_page(request: AuditRequest):
         return results
 
     except ValueError as error:
-        raise HTTPException(
+        raise fastapi.HTTPException(
             status_code=400,
             detail=str(error),
         )
 
     except Exception:
-        raise HTTPException(
+        raise fastapi.HTTPException(
             status_code=500,
             detail="An unexpected error occurred while analysing this webpage.",
         )
+
+   
